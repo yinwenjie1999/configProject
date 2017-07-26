@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: ServiceSystemA
+    
+  # database
+  datasource: 
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/taste?characterEncoding=UTF-8&useSSL=false
+    username:  root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+
+  # freemarker
+  freemarker: 
+    request-context-attribute: request
+    allow-request-override: false
+    cache: false
+    charset: UTF-8
+    expose-request-attributes: true
+    expose-session-attributes: true
+    suffix: .ftl
+    
+eureka:
+  client:
+    service-url: 
+      defaultZone: http://peer1:1111/eureka/,http://peer2:1112/eureka/
+  instance:
+    status-page-url-path: /info 
+    health-check-url-path: /health 
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
